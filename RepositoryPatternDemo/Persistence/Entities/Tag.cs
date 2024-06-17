@@ -48,7 +48,11 @@ internal class Tag : IEntity, IComparable<Tag>
         Name = name;
         Description = description;
 
-        if (Errors.Count > 0) throw new EntityValidationException(Errors);
+        foreach (var error in Errors)
+        {
+            if (error.Value.Count > 0)
+                throw new EntityValidationException(Errors);
+        }
     }
 
     private void ValidateSlug()

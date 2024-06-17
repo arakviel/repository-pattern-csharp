@@ -2,5 +2,5 @@
 
 internal class UserCompererByCreatedAt : IComparer<User>
 {
-    public int Compare(User? first, User? second) => first?.CreatedAt.CompareTo(second?.CreatedAt) ?? 0;
+    public int Compare(User? first, User? second) => second?.CreatedAt.CompareTo(first?.CreatedAt) ?? 0;
 }

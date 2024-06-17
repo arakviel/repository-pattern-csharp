@@ -25,7 +25,7 @@ internal class UserFileRepository : GenericFileRepository<User>, IUserRepository
                 name: userFields[1],
                 email: userFields[2],
                 password: userFields[3],
-                avatar: userFields[4],
+                avatar: !string.IsNullOrEmpty(userFields[4]) ? userFields[4] : null,
                 createdAt: DateTime.Parse(userFields[5]),
                 updatedAt: DateTime.Parse(userFields[6])
             );

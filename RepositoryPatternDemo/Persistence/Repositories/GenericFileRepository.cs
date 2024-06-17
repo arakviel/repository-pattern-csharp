@@ -36,13 +36,13 @@ internal abstract class GenericFileRepository<T> : IRepository<T> where T : IEnt
         foreach (var entity in Entities)
             _entities.Add(SerializeEntity(entity));
 
-
         File.WriteAllLines(filePath, _entities.ToArray());
     }
 
     private IEnumerable<T> DeserializeAll()
     {
         if (Entities.Count != 0) return Entities;
+        if (!File.Exists(filePath)) return Enumerable.Empty<T>();
 
         foreach (var line in File.ReadAllLines(filePath))
         {

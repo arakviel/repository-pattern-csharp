@@ -73,7 +73,11 @@ internal class Comment : IEntity, IComparable<Comment>
         CreatedAt = createdAt;
         UpdatedAt = updatedAt;
 
-        if (Errors.Count > 0) throw new EntityValidationException(Errors);
+        foreach (var error in Errors)
+        {
+            if (error.Value.Count > 0)
+                throw new EntityValidationException(Errors);
+        }
     }
 
     public int CompareTo(Comment? other)

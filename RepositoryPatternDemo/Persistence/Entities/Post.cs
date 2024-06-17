@@ -111,7 +111,11 @@ internal class Post : IEntity, IComparable<Post>
         CreatedAt = createdAt;
         UpdatedAt = updatedAt;
 
-        if (Errors.Count > 0) throw new EntityValidationException(Errors);
+        foreach (var error in Errors)
+        {
+            if (error.Value.Count > 0)
+                throw new EntityValidationException(Errors);
+        }
     }
 
     public int CompareTo(Post? other)
