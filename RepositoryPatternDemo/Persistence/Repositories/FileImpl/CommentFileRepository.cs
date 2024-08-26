@@ -1,5 +1,6 @@
 ﻿using RepositoryPatternDemo.Persistence.Entities;
 using RepositoryPatternDemo.Persistence.Repositories.Contracts;
+using RepositoryPatternDemo.Persistence.Repositories.Generics;
 using RepositoryPatternDemo.Persistence.Repositories.Impl;
 
 namespace RepositoryPatternDemo.Persistence.Repositories.FileImpl;

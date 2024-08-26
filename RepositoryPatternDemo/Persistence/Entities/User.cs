@@ -75,15 +75,26 @@ internal class User : IEntity, IComparable<User>
 
     private Dictionary<string, List<string>> Errors { get; set; } = new();
 
-    public User(Guid? id,
-        string name,
-        string email,
-        string password,
-        string? avatar,
-        DateTime createdAt,
-        DateTime updatedAt)
+    public User(
+        Guid id,
+       string name,
+       string email,
+       string password,
+       string? avatar,
+       DateTime createdAt,
+       DateTime updatedAt) : this(name, email, password, avatar, createdAt, updatedAt)
     {
         Id = id;
+    }
+
+    public User(
+    string name,
+    string email,
+    string password,
+    string? avatar,
+    DateTime createdAt,
+    DateTime updatedAt)
+    {
         Name = name;
         Email = email;
         Password = password;

@@ -1,6 +1,6 @@
 ﻿using RepositoryPatternDemo.Persistence.Entities;
 
-namespace RepositoryPatternDemo.Persistence.Repositories;
+namespace RepositoryPatternDemo.Persistence.Repositories.Generics;
 
 internal abstract class GenericFileRepository<T> : IRepository<T> where T : IEntity
 {
